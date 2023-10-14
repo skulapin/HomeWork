@@ -3,9 +3,9 @@ package home_work_3.runners;
 import home_work_3.calcs.additional.CalculatorStringExpression;
 import home_work_3.calcs.simple.CalculatorWithMathCopy;
 
-/* 	14.8 Создать класс CalculatorStringExpressionMain в котором будет точка входа (main метод). В main методе требуется
-создать экземпляр калькулятора CalculatorStringExpression и используя методы из данного экземпляра посчитать выражения
-из задания 1. Вывести в консоль результат.
+/* 	14.8 РЎРѕР·РґР°С‚СЊ РєР»Р°СЃСЃ CalculatorStringExpressionMain РІ РєРѕС‚РѕСЂРѕРј Р±СѓРґРµС‚ С‚РѕС‡РєР° РІС…РѕРґР° (main РјРµС‚РѕРґ). Р’ main РјРµС‚РѕРґРµ С‚СЂРµР±СѓРµС‚СЃСЏ
+СЃРѕР·РґР°С‚СЊ СЌРєР·РµРјРїР»СЏСЂ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° CalculatorStringExpression Рё РёСЃРїРѕР»СЊР·СѓСЏ РјРµС‚РѕРґС‹ РёР· РґР°РЅРЅРѕРіРѕ СЌРєР·РµРјРїР»СЏСЂР° РїРѕСЃС‡РёС‚Р°С‚СЊ РІС‹СЂР°Р¶РµРЅРёСЏ
+РёР· Р·Р°РґР°РЅРёСЏ 1. Р’С‹РІРµСЃС‚Рё РІ РєРѕРЅСЃРѕР»СЊ СЂРµР·СѓР»СЊС‚Р°С‚.
 */
 
 public class CalculatorStringExpressionMain {
