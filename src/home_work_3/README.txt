@@ -1,0 +1,14 @@
+Задание 1 - WithoutCalculatorMain
+Задание 2 - CalculatorWithOperator, CalculatorWithOperatorMain
+Задание 3 - CalculatorWithMathCopy, CalculatorWithMathCopyMain
+Задание 4 - CalculatorWithMathExtends, CalculatorWithMathExtendsMain
+Задание 5 - CalculatorWithCounterClassic, CalculatorWithCounterClassicMain
+Задание 6 - CalculatorWithCounterAutoSuper, CalculatorWithCounterAutoSuperMain
+Задание 7 - CalculatorWithCounterAutoComposite, CalculatorWithCounterDelegateCompositeMain
+Задание 8 - CalculatorWithCounterAutoAgregation, CalculatorWithCounterDelegateAgregationMain
+Задание 9 - CalculatorWithCounterAutoChoiceAgregation, CalculatorWithCounterDelegateChoiceAgregationMain
+Задание 10 - ICalculator
+Задание 11 - CalculatorWithCounterAutoAgregationInterface, CalculatorWithCounterAutoCompositeInterfaceMain
+Задание 12 - CalculatorWithMemory, CalculatorWithMemoryMain
+Задание 13 - CalculatorWithCounterAutoDecorator, CalculatorWithMemoryDecorator, CalculatorDecoratorMain
+Задание 14 - CalculatorStringExpression, CalculatorStringExpressionMain
