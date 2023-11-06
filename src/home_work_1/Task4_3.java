@@ -17,7 +17,6 @@ public class Task4_3 {
         int number2;
 
         int remainder;
-        double quotient;
 
         Scanner sc = new Scanner(System.in);
 
@@ -45,8 +44,7 @@ public class Task4_3 {
             }
         }
 
-        remainder = number1 % number2;
-        quotient = (double) number1 / number2;
+        remainder = getRemainder(number1, number2);
 
         if (remainder == 0) {
             System.out.print("Число " + number1 + " делится на " + number2 + " без остаткa. ");
@@ -54,6 +52,35 @@ public class Task4_3 {
             System.out.print("Число " + number1 + " не делится на " + number2 + " без остатка. Остаток от деления равен "
                     + remainder + ". ");
         }
-        System.out.println("Частное деления " + number1 + " на " + number2 + " равняется " + quotient);
+        System.out.println("Частное деления " + number1 + " на " + number2 + " равняется " + getQuotient(number1, number2));
+    }
+
+    /**
+     * Находит остаток от деления двух чисел
+     *
+     * @param num1 Делимое
+     * @param num2 Делитель
+     * @return Возвращает остаток от деления. При делителе равном 0 возвращает 0
+     */
+    public static int getRemainder(int num1, int num2) {
+        if (num2 == 0) {
+            return 0;
+        }
+        return num1 % num2;
+    }
+
+    /**
+     * Находит частное от деления двух чисел
+     *
+     * @param num1 Делимое
+     * @param num2 Делитель
+     * @return Возвращает частное от деления.
+     * При делителе равном 0 возвращает 0
+     */
+    public static double getQuotient(int num1, int num2) {
+        if (num1 == 0 || num2 == 0) {
+            return 0;
+        }
+        return (double) num1 / num2;
     }
 }

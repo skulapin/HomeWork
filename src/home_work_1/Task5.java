@@ -61,13 +61,20 @@ public class Task5 {
 
         answer = sleepIn(weekday, vacation);
 
-        if (answer){
+        if (answer) {
             System.out.println("Можно спать дальше :)");
-        }else{
+        } else {
             System.out.println("Пора идти на работу :(");
         }
     }
 
+    /**
+     * Определяет можно ли спать дальше, либо необходимо идти на работу
+     *
+     * @param weekday  Признак рабочего дня
+     * @param vacation Признак нахождения в отпуске
+     * @return true - на работу идти не надо, false - надо идти на работу
+     */
     public static boolean sleepIn(boolean weekday, boolean vacation) {
 
         if (!weekday || vacation) {

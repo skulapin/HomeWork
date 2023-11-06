@@ -12,43 +12,14 @@ import java.util.Scanner;
 
 public class Task1_4 {
 
-    public static void main(String[] args) {
-
-        int number;
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Умножаем 1 на число 3:");
-        System.out.println(answerToConsole(3));
-        System.out.println();
-
-        System.out.println("Умножаем 1 на число 188:");
-        System.out.println(answerToConsole(188));
-        System.out.println();
-
-        System.out.println("Умножаем 1 на число -19:");
-        System.out.println(answerToConsole(-19));
-        System.out.println();
-
-        System.out.print("Введите число, на которое хотите умножать 1: ");
-
-        while (!sc.hasNextInt()) {
-            sc.nextLine();
-            System.out.print("Неверный ввод, повторите попытку: ");
-        }
-
-        number = sc.nextInt();
-
-        System.out.println("Умножаем 1 на число " + number + ": ");
-        System.out.println(answerToConsole(number));
-
-    }
-
     /**
      * Умножает число 1 типа long до тех пор, пока не произойдёт переполнение
+     *
      * @param degree Число на которое умножаем
-     * @return Переменная типа String со значением до переполнения и после переполнения
+     * @return Переменная типа String со значением до переполнения и после переполнения.
+     * При вводе -1, 0 или 1 выводится предупреждающее сообщение.
      */
-    public static String answerToConsole(int degree) {
+    public String answerToString(int degree) {
 
         int result = 1;
         String toConsole = "";

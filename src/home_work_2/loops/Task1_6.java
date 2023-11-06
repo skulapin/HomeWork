@@ -6,32 +6,45 @@ package home_work_2.loops;
 
 public class Task1_6 {
 
-    public static void main(String[] args) {
+    /**
+     * Собирает в строковую переменную таблицу умножения
+     *
+     * @return Таблица умножения
+     */
+    public String multiplicationTable() {
 
         int number;
+        StringBuilder builder = new StringBuilder();
 
         for (int i = 1; i <= 10; i++) {
+            if (i != 1) {
+                builder.append("\n");
+            }
             System.out.println();
             for (int j = 2; j <= 5; j++) {
                 number = i * j;
-                System.out.print(returnFormula(i, j, number));
+                builder.append(returnFormula(i, j, number));
             }
         }
 
-        System.out.println();
+        builder.append("\n");
 
         for (int i = 0; i < 53; i++) {
-            System.out.print("-");
+            builder.append("-");
+
         }
 
         for (int i = 1; i <= 10; i++) {
-            System.out.println();
+            builder.append("\n");
+
             for (int j = 6; j <= 9; j++) {
                 number = i * j;
-                System.out.print(returnFormula(i, j, number));
+                builder.append(returnFormula(i, j, number));
             }
         }
+        return builder.toString();
     }
+
 
     /**
      * Собирает строку с выражением умножения двух чисел

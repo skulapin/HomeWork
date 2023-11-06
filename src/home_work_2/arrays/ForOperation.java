@@ -4,53 +4,54 @@ package home_work_2.arrays;
  * Содержит методы выводящие в консоль элементы массива типа int при помощи For
  */
 public class ForOperation implements IArraysOperation {
-    /**
-     * Выводит все элементы массива в консоль
-     *
-     * @param arr Массив целочисленных переменных типа int
-     */
+
     @Override
-    public void printAllElements(int[] arr) {
+    public String printAllElements(int[] arr) {
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+            if (builder.isEmpty()) {
+                builder.append(arr[i]);
+            } else {
+                builder.append(" ").append(arr[i]);
+            }
         }
+        return builder.toString();
     }
 
-    /**
-     * Выводит каждый второй элемент массива в консоль
-     *
-     * @param arr Массив целочисленных переменных типа int
-     */
     @Override
-    public void printSecondElements(int[] arr) {
+    public String printSecondElements(int[] arr) {
+        StringBuilder builder = new StringBuilder();
         for (int i = 1; i < arr.length; i += 2) {
-            System.out.print(arr[i] + " ");
+            if (builder.isEmpty()) {
+                builder.append(arr[i]);
+            } else {
+                builder.append(" ").append(arr[i]);
+            }
         }
+        return builder.toString();
     }
 
-    /**
-     * Выводит все элементы массива в консоль в обратном порядке
-     *
-     * @param arr Массив целочисленных переменных типа int
-     */
     @Override
-    public void printAllElementsInReverse(int[] arr) {
+    public String printAllElementsInReverse(int[] arr) {
+        StringBuilder builder = new StringBuilder();
         for (int i = arr.length - 1; i >= 0; i--) {
-            System.out.print(arr[i] + " ");
+            if (builder.isEmpty()) {
+                builder.append(arr[i]);
+            } else {
+                builder.append(" ").append(arr[i]);
+            }
         }
+        return builder.toString();
     }
 
     /**
-     * Вызывает все методы печати данного класса
+     * Выводит на печать работу всех методов данного класса
      *
      * @param arr Массив целочисленных переменных типа int
      */
     public void printAllForOperation(int[] arr) {
-        printAllElements(arr);
-        System.out.println();
-        printSecondElements(arr);
-        System.out.println();
-        printAllElementsInReverse(arr);
-        System.out.println();
+        System.out.println(printAllElements(arr));
+        System.out.println(printSecondElements(arr));
+        System.out.println(printAllElementsInReverse(arr));
     }
 }

@@ -51,10 +51,26 @@ public class Task4_1 {
             }
         }
 
-        if (Math.abs(number1 % 2) == 1) {
-            System.out.println("Нечетное число - " + number1);
-        } else {
-            System.out.println("Нечетное число - " + number2);
+        System.out.println("Нечетное число - " + getOddNumber(number1, number2));
+    }
+
+    /**
+     * Среди двух чисел находит нечетное число
+     *
+     * @param num1 Первое число
+     * @param num2 Второе число
+     * @return Возвращает нечетное число.
+     * При некорректных входных параметрах (два четных, либо два нечетных числа) возвращает 0
+     */
+    public static int getOddNumber(int num1, int num2) {
+
+        if ((num1 % 2 == 0 && num2 % 2 == 0) || (num1 % 2 == 1 && num2 % 2 == 1)) {
+            return 0;
         }
+
+        if (Math.abs(num1 % 2) == 1) {
+            return num1;
+        }
+        return num2;
     }
 }

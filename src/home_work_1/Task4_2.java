@@ -14,7 +14,7 @@ public class Task4_2 {
 
         int number1;
         int number2;
-        int c;
+        int number3;
 
         Scanner sc = new Scanner(System.in);
 
@@ -49,23 +49,39 @@ public class Task4_2 {
                 sc.nextLine();
                 System.out.print("Неверный ввод, повторите попытку: ");
             }
-            c = sc.nextInt();
-            if (c != number1 && c != number2) {
+            number3 = sc.nextInt();
+            if (number3 != number1 && number3 != number2) {
                 break;
             } else {
                 System.out.print("Введено ранее введенное число, повторите попытку: ");
             }
         }
 
-        if ((number1 > number2 && number1 < c) || (number1 > c && number1 < number2)) {
-            System.out.println("Среди чисел " + number1 + ", " + number2 + " и " + c + " число " + number1 +
-                    " является средним числом");
-        } else if ((number2 > number1 && number2 < c) || (number2 > c && number2 < number1)) {
-            System.out.println("Среди чисел " + number1 + ", " + number2 + " и " + c + " число " + number2 +
-                    " является средним числом");
-        } else {
-            System.out.println("Среди чисел " + number1 + ", " + number2 + " и " + c + " число " + c +
-                    " является средним числом");
+        System.out.println("Среди чисел " + number1 + ", " + number2 + " и " + number3 + " число "
+                + getMiddleNumber(number1, number2, number3) + " является средним числом");
+
+    }
+
+    /**
+     * Среди трех чисел находит среднее
+     *
+     * @param num1 Первое число
+     * @param num2 Второе число
+     * @param num3 Третье число
+     * @return Возвращает среднее по значению число.
+     * При некорретных входных параметрах (два или более чисел равны) возвращает 2147483647
+     */
+    public static int getMiddleNumber(int num1, int num2, int num3) {
+
+        if (num1 == num2 || num1 == num3 || num2 == num3) {
+            return Integer.MAX_VALUE;
         }
+
+        if ((num1 > num2 && num1 < num3) || (num1 > num3 && num1 < num2)) {
+            return num1;
+        } else if ((num2 > num1 && num2 < num3) || (num2 > num3 && num2 < num1)) {
+            return num2;
+        }
+        return num3;
     }
 }

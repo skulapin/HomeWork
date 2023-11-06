@@ -24,9 +24,13 @@ public class CalculatorWithMathExtends extends CalculatorWithOperator implements
      *
      * @param number1 Основание
      * @param number2 Степень числа
-     * @return Результат операции возведения числа в степень
+     * @return Результат операции возведения числа в степень. Если основание равно 0 и степень отрицательная -
+     * возвращает ноль.
      */
     public double pow(double number1, int number2) {
+        if (number1 == 0 && number2 < 0) {
+            return 0;
+        }
         return Math.pow(number1, number2);
     }
 
@@ -44,9 +48,12 @@ public class CalculatorWithMathExtends extends CalculatorWithOperator implements
      * Операция нахождения квадратного корня числа
      *
      * @param number Неотрицательное вещественное число
-     * @return Квадратный корень из числа
+     * @return Квадратный корень из числа. При переданном в метод отрицательном числе возвращает -1
      */
     public double sqrt(double number) {
+        if (number < 0){
+            return -1;
+        }
         return Math.sqrt(number);
     }
 }

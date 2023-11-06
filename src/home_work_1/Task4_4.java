@@ -10,16 +10,17 @@ import java.util.Scanner;
  */
 
 public class Task4_4 {
+
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
         int data;
-        double result;
+
         String choice;
 
-        System.out.print("Для перевода байт в килобайты введите \"yes\", для перевода килобайтов в байты " +
-                "нажмите \"no\".\nВведите Ваш выбор:");
+        System.out.print("Для перевода байт в килобайты введите \"yes\", для перевода килобайтов в байты "
+                + "нажмите \"no\".\nВведите Ваш выбор:");
 
         choice = sc.nextLine();
 
@@ -27,40 +28,69 @@ public class Task4_4 {
 
             System.out.print("Введите количество байт:");
 
-            while (true) {
-                while (!sc.hasNextInt()) {
-                    sc.nextLine();
-                    System.out.print("Неверный ввод, повторите попытку: ");
-                }
-                data = sc.nextInt();
-                if (data >= 0) {
-                    break;
-                } else {
-                    System.out.print("Память не может быть отрицательным числом, повторите попытку: ");
-                }
-            }
-            result = (double) data / 1024;
-            System.out.println(data + " байт равняется " + result + " килобайт");
+            data = getDataNumber();
+
+            System.out.println(data + " байт равняется " + bytesToKilobytes(data) + " килобайт");
         } else if (choice.equals("no")) {
 
             System.out.print("Введите количество килобайт:");
 
-            while (true) {
-                while (!sc.hasNextInt()) {
-                    sc.nextLine();
-                    System.out.print("Неверный ввод, повторите попытку: ");
-                }
-                data = sc.nextInt();
-                if (data >= 0) {
-                    break;
-                } else {
-                    System.out.print("Память не может быть отрицательным числом, повторите попытку: ");
-                }
-            }
-            result = data * 1024;
-            System.out.println(data + " килобайт равняется " + result + " байт");
+            data = getDataNumber();
+
+            System.out.println(data + " килобайт равняется " + kilobytesToBytes(data) + " байт");
         } else {
             System.out.println("Введено неверное значение. Перезапустите программу!");
+        }
+    }
+
+    /**
+     * Переводит байты в килобайты
+     *
+     * @param data Число байт
+     * @return Возвращает величину преобразованную в килобайты.
+     * При введенном отрицательном числе возвращает -1
+     */
+    public static double bytesToKilobytes(int data) {
+        if (data < 0) {
+            return -1;
+        }
+        return data / 1024.0;
+    }
+
+    /**
+     * Переводит килобайты в байты
+     *
+     * @param data Число килобайт
+     * @return Возвращает величину преобразованную в байты.
+     * При введенном отрицательном числе возвращает -1
+     */
+    public static int kilobytesToBytes(int data) {
+        if (data < 0) {
+            return -1;
+        }
+        return data * 1024;
+    }
+
+    /**
+     * Запрашивает у пользователя числовой объем памяти
+     *
+     * @return Число равняющееся объему памяти
+     */
+    private static int getDataNumber() {
+
+        int data;
+
+        while (true) {
+            while (!sc.hasNextInt()) {
+                sc.nextLine();
+                System.out.print("Неверный ввод, повторите попытку: ");
+            }
+            data = sc.nextInt();
+            if (data >= 0) {
+                return data;
+            } else {
+                System.out.print("Память не может быть отрицательным числом, повторите попытку: ");
+            }
         }
     }
 }

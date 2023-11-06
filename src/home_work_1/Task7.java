@@ -10,7 +10,6 @@ public class Task7 {
 
     public static void main(String[] args) {
 
-
         int[] numbers = new int[10];
         String phoneNumber;
 
@@ -23,22 +22,39 @@ public class Task7 {
 
     }
 
+    /**
+     * Принимает массив цифр и преобразовывает в строку формата (XXX) XXX-XXXX
+     *
+     * @param a Массив чисел
+     * @return Строка формата (XXX) XXX-XXXX. При некорректром вводе (отрицательные
+     * числа, числа не являющиеся цифрами, массив состоит не из 10 элементов) возвращает null
+     */
     public static String createPhoneNumber(int[] a) {
 
-        String result = null;
+        StringBuffer buffer = new StringBuffer();
 
-        for (int i = 0; i <= 9; i++) {
-            if (i == 0) {
-                result = "(" + String.valueOf(a[i]);
-            }
-            if ((i > 0 && i < 3) || (i > 3 && i < 6) || i > 6) {
-                result += String.valueOf(a[i]);
-            } else if (i == 3) {
-                result += ") " + String.valueOf(a[i]);
-            } else if (i == 6) {
-                result += " - " + String.valueOf(a[i]);
+        if (a.length != 10) {
+            return null;
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] < 0 || a[i] > 9) {
+                return null;
             }
         }
-        return result;
+
+        for (int i = 0; i < a.length; i++) {
+            if (i == 0) {
+                buffer.append("(").append(a[i]);
+            }
+            if ((i > 0 && i < 3) || (i > 3 && i < 6) || i > 6) {
+                buffer.append(a[i]);
+            } else if (i == 3) {
+                buffer.append(") ").append(a[i]);
+            } else if (i == 6) {
+                buffer.append("-").append(a[i]);
+            }
+        }
+        return buffer.toString();
     }
 }

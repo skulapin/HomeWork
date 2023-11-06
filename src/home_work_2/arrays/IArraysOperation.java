@@ -9,22 +9,29 @@ package home_work_2.arrays;
  */
 
 public interface IArraysOperation {
-    /**
-     * Выводит все элементы массива в консоль
-     * @param arr Массив целочисленных переменных типа int
-     */
-    abstract void printAllElements(int arr[]);
 
     /**
-     * Выводит в консоль каждый второй элемент целочисленного массива типа int
+     * Создает строку со всеми элементами массива
+     *
      * @param arr Массив целочисленных переменных типа int
+     * @return Строка со значениями всех элементов массива
      */
-    abstract void printSecondElements(int arr[]);
+    String printAllElements(int[] arr);
 
     /**
-     * Выводит в консоль все переменные целочисленного массива типа int в обратном порядке
+     * Создает строку с каждым вторым элементом массива
+     *
      * @param arr Массив целочисленных переменных типа int
+     * @return Строка со значениями каждого второго элемента массива
      */
-    abstract void printAllElementsInReverse(int arr[]);
+    String printSecondElements(int[] arr);
+
+    /**
+     * Создает строку со всеми элементами массива в обратном порядке
+     *
+     * @param arr Массив целочисленных переменных типа int
+     * @return Строка со значениями всех элементов массива в обратном порядке
+     */
+    String printAllElementsInReverse(int[] arr);
 }
 

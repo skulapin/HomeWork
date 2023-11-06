@@ -11,45 +11,25 @@ import java.util.Scanner;
 
 public class Task1_3 {
 
-    public static void main(String[] args) {
+    /**
+     * Возводит число в заданную степень и формирует строку с заданным выражением
+     *
+     * @param degreeBase Основание
+     * @param exponent   Степень
+     * @return Строка с выражением возведения числа в степень. При вводе отрицательной степени выводится соответствующее
+     * предупреждение
+     */
+    public String getPow(double degreeBase, int exponent) {
 
-        double degreeBase;
-        int exponent;
+        if (exponent < 0) {
+            return "Cтепень должна быть положительная";
+        }
+
         double result = 1;
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Введите основание степени: ");
-
-        while (!sc.hasNextDouble()) {
-
-            sc.nextLine();
-            System.out.print("Неверный ввод, повторите попытку: ");
-        }
-
-        degreeBase = sc.nextDouble();
-
-        System.out.print("Введите показатель степени: ");
-
-        while (true) {
-            while (!sc.hasNextInt()) {
-
-                sc.nextLine();
-                System.out.print("Неверный ввод, повторите попытку: ");
-            }
-
-            exponent = sc.nextInt();
-
-            if (exponent >= 1) {
-                break;
-            } else {
-                System.out.print("Неверный ввод, повторите попытку: ");
-            }
-        }
 
         for (int i = 1; i <= exponent; i++) {
             result *= degreeBase;
         }
-        System.out.println(degreeBase + " ^ " + exponent + " = " + result);
+        return degreeBase + " ^ " + exponent + " = " + result;
     }
 }

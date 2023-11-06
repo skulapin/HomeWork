@@ -10,86 +10,90 @@ package home_work_2.loops;
 
 public class Task1_2 {
 
-    public static void main(String[] args) {
+    /**
+     * Возвращает строку с расписанным перемножением всех цифр числа и конечным результатом.
+     *
+     * @param argument Строка с числом
+     * @return Строка с расписанным перемножением всех цифр числа и конечным результатом.
+     * При некорректных входных параметрах выводит сообщения:
+     * "Введено не целое число" -  при дробном числе
+     * "Введено не число" - при введеннном ни целом, ни дробном числе
+     */
+    public String multiplyNumbers(String argument) {
 
-        if (args.length == 1) {
+        boolean isDouble = false;
+        boolean isString = false;
+        boolean isNegativeNumber = false;
 
-            String argument = args[0];
+        int dotCounter = 0;
+        int result = 1;
 
-            boolean isDouble = false;
-            boolean isString = false;
-            boolean isNegativeNumber = false;
+        StringBuilder builder = new StringBuilder();
 
-            int dotCounter = 0;
-            int result = 1;
+        // Проверяем потенциальное число на отрицательность
 
-            String toConsole = "";
+        if (argument.charAt(0) == '-') {
+            isNegativeNumber = true;
+        }
 
-            // Проверяем потенциальное число на отрицательность
+        // Проверяем наличие недопустимых символов в строке для числа
 
-            if (argument.charAt(0) == '-') {
-                isNegativeNumber = true;
-            }
+        for (int i = 0; i < argument.length(); i++) {
 
-            // Проверяем наличие недопустимых символов в строке для числа
+            if (!Character.isDigit(argument.charAt(i))) {
 
-            for (int i = 0; i < argument.length(); i++) {
+                if (argument.charAt(i) == '.') {
+                    isDouble = true;
+                    dotCounter++;
 
-                if (!Character.isDigit(argument.charAt(i))) {
-
-                    if (argument.charAt(i) == '.') {
-                        isDouble = true;
-                        dotCounter++;
-
-                        if (dotCounter > 1) {
-                            isString = true;
-                            break;
-                        }
-                    } else {
-                        if (i != 0 || !isNegativeNumber) {
-                            isString = true;
-                            break;
-                        }
+                    if (dotCounter > 1) {
+                        isString = true;
+                        break;
+                    }
+                } else {
+                    if (i != 0 || !isNegativeNumber) {
+                        isString = true;
+                        break;
                     }
                 }
             }
+        }
 
-            // Проверяем частные ситуации в первом и последнем символе строки
+        // Проверяем частные ситуации в первом и последнем символе строки
 
-            if (argument.charAt(0) == '0' || argument.charAt(0) == '.'
-                    || argument.charAt(argument.length() - 1) == '.') {
-                isString = true;
-            }
+        if ((argument.charAt(0) == '0' && argument.length() > 1 && argument.charAt(1) != '.') || argument.charAt(0) == '.'
+                || argument.charAt(argument.length() - 1) == '.') {
+            isString = true;
+        }
 
-            if (isString == true) {
-                System.out.println("Введено не число");
-            } else if (isDouble == true) {
-                System.out.println("Введено не целое число");
-            } else {
-
-                // Собираем полученный результат в строку. Если число отрицательное - итерацию
-                // производим со 2 символа.
-
-                int j = 0;
-
-                if (isNegativeNumber) {
-                    j++;
-                }
-                for (int i = j; i < argument.length(); i++) {
-
-                    toConsole += argument.charAt(i);
-
-                    if (!(i == argument.length() - 1)) {
-                        toConsole += " * ";
-                    }
-                    result *= Character.getNumericValue(argument.charAt(i));
-                }
-
-                toConsole += " = " + result;
-                System.out.println(toConsole);
-            }
+        if (isString) {
+            return "Введено не число";
+        } else if (isDouble) {
+            return "Введено не целое число";
         } else {
-            System.out.println("Неверный аргумент к программе");
+
+            // Собираем полученный результат в строку. Если число отрицательное - итерацию
+            // производим со 2 символа.
+
+            int j = 0;
+
+            if (isNegativeNumber) {
+                j++;
+            }
+            for (int i = j; i < argument.length(); i++) {
+
+                builder.append(argument.charAt(i));
+
+                if (!(i == argument.length() - 1)) {
+                    builder.append(" * ");
+
+                }
+                result *= Character.getNumericValue(argument.charAt(i));
+            }
+
+            builder.append(" = ").append(result);
+
+            return builder.toString();
         }
     }
 }
