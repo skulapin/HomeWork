@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WhileOperationTest {
 
-    int[] arr1 = {1, 2, 3, 4, 5};
-    int[] arr2 = {5, 4, 3, 2, 1};
-    int[] arr3 = {};
-    IArraysOperation printArray = new WhileOperation();
+    private final int[] arr1 = {1, 2, 3, 4, 5};
+    private final int[] arr2 = {5, 4, 3, 2, 1};
+    private final int[] arr3 = {};
+    private final IArraysOperation printArray = new WhileOperation();
 
     @Test
     public void printAllElements1() {

@@ -2,10 +2,10 @@ package home_work_2.loops;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Task1_5Test {
-    Task1_5 task = new Task1_5();
+    private final Task1_5 task = new Task1_5();
 
     @Test
     public void task1_1() {
@@ -33,7 +33,7 @@ public class Task1_5Test {
         if (evenNumbersPercentage >= 0 && evenNumbersPercentage <= 100) {
             probability = true;
         }
-        assertEquals(probability, true);
+        assertTrue(probability);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class Task1_5Test {
             probability = true;
         }
 
-        assertEquals(probability, false);
+        assertFalse(probability);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class Task1_5Test {
             probability = true;
         }
 
-        assertEquals(probability, false);
+        assertFalse(probability);
     }
 
     @Test
@@ -111,11 +111,11 @@ public class Task1_5Test {
         assertEquals("10 15 20 25 30 35", sequence);
     }
 
-  @Test
-  public void task5_2() {
-      String sequence = task.task5(-10, 35, 5);
-      assertEquals("-10 -5 0 5 10 15 20 25 30 35", sequence);
-  }
+    @Test
+    public void task5_2() {
+        String sequence = task.task5(-10, 35, 5);
+        assertEquals("-10 -5 0 5 10 15 20 25 30 35", sequence);
+    }
 
     @Test
     public void task5_3() {

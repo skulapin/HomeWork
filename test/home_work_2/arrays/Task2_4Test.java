@@ -8,11 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task2_4Test {
 
-    int[] arr1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int[] arr2 = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-    int[] arr3 = {0, -1, -2, -3, -4, -5, -6, -7, -8, -9};
-    int[] arr4 = {0, -1, 2, -3, 4, -5, 6, -7, 8, -9};
-    int[] arr5 = {2, 0, 5, 8, 2};
+    private final int[] arr1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    private final int[] arr2 = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    private final int[] arr3 = {0, -1, -2, -3, -4, -5, -6, -7, -8, -9};
+    private final int[] arr4 = {0, -1, 2, -3, 4, -5, 6, -7, 8, -9};
+    private final int[] arr5 = {2, 0, 5, 8, 2};
 
 
     @Test

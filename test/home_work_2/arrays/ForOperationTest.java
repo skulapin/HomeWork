@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ForOperationTest {
 
-    int[] arr1 = {1, 2, 3, 4, 5};
-    int[] arr2 = {5, 4, 3, 2, 1};
-    int[] arr3 = {};
-    IArraysOperation printArray = new ForOperation();
+    private final int[] arr1 = {1, 2, 3, 4, 5};
+    private final int[] arr2 = {5, 4, 3, 2, 1};
+    private final int[] arr3 = {};
+    private final IArraysOperation printArray = new ForOperation();
 
     @Test
     public void printAllElements1() {

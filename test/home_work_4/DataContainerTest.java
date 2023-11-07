@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DataContainerTest {
 
-    DataContainer<Integer> containerInteger = new DataContainer<>(new Integer[]{1, null, 3, null});
-    DataContainer<String> containerString = new DataContainer<>(new String[]{"i", "hello", "1", "Как домашка"});
+    private DataContainer<Integer> containerInteger = new DataContainer<>(new Integer[]{1, null, 3, null});
+    private final DataContainer<String> containerString = new DataContainer<>(new String[]{"i", "hello", "1", "Как домашка"});
 
     @Test
     public void add() {
@@ -21,9 +21,9 @@ public class DataContainerTest {
     @Test
     public void get() {
         assertEquals(1, containerInteger.get(0));
-        assertEquals(null, containerInteger.get(1));
+        assertNull(containerInteger.get(1));
         assertEquals(3, containerInteger.get(2));
-        assertEquals(null, containerInteger.get(10));
+        assertNull(containerInteger.get(10));
     }
 
     @Test
@@ -33,11 +33,11 @@ public class DataContainerTest {
 
     @Test
     public void delete() {
-        assertEquals(false, containerInteger.delete(null));
+        assertFalse(containerInteger.delete(null));
         assertEquals(4, containerInteger.getItems().length);
-        assertEquals(true, containerInteger.delete(3));
+        assertTrue(containerInteger.delete(3));
         assertEquals(3, containerInteger.getItems().length);
-        assertEquals(false, containerInteger.delete(-3));
+        assertFalse(containerInteger.delete(-3));
         assertEquals(3, containerInteger.getItems().length);
     }
 

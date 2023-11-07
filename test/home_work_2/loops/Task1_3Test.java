@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task1_3Test {
 
-    Task1_3 task = new Task1_3();
+    private final Task1_3 task = new Task1_3();
 
     @Test
     public void getPow1() {

@@ -7,12 +7,12 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SortUtilsTest {
-    int[] arr1 = {1, 2, 3, 4, 5, 6};
-    int[] arr2 = {1, 1, 1, 1};
-    int[] arr3 = {9, 1, 5, 99, 9, 9};
-    int[] arr4 = {};
-    int[] arr5 = {6, 5, 4, 3, 2, 1};
-    int[] arr6 = {-2, 5, -93, 102, 62, -0};
+    private final int[] arr1 = {1, 2, 3, 4, 5, 6};
+    private final int[] arr2 = {1, 1, 1, 1};
+    private final int[] arr3 = {9, 1, 5, 99, 9, 9};
+    private final int[] arr4 = {};
+    private final int[] arr5 = {6, 5, 4, 3, 2, 1};
+    private final int[] arr6 = {-2, 5, -93, 102, 62, -0};
 
     @Test
     public void sort1() {

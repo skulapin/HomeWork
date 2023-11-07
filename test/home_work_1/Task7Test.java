@@ -3,6 +3,7 @@ package home_work_1;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class Task7Test {
 
@@ -21,24 +22,24 @@ public class Task7Test {
     @Test
     public void createPhoneNumber3() {
         String result = Task7.createPhoneNumber(new int[]{-1, 2, 3, 4, 5, 6, 7, 8, 9, 0});
-        assertEquals(null, result);
+        assertNull(result);
     }
 
     @Test
     public void createPhoneNumber4() {
         String result = Task7.createPhoneNumber(new int[]{10, 2, 3, 4, 5, 6, 7, 8, 9, 0});
-        assertEquals(null, result);
+        assertNull(result);
     }
 
     @Test
     public void createPhoneNumber5() {
         String result = Task7.createPhoneNumber(new int[9]);
-        assertEquals(null, result);
+        assertNull(result);
     }
 
     @Test
     public void createPhoneNumber6() {
         String result = Task7.createPhoneNumber(new int[11]);
-        assertEquals(null, result);
+        assertNull(result);
     }
 }

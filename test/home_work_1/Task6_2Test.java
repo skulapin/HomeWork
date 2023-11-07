@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task6_2Test {
 
-    ICommunicationPrinter task6 = new Task6_2();
+    private final ICommunicationPrinter task6 = new Task6_2();
 
     @Test
     public void welcome1() {

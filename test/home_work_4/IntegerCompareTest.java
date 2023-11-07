@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IntegerCompareTest {
 
-    Comparator<Integer> comparator = new IntegerCompare();
+    private final Comparator<Integer> comparator = new IntegerCompare();
 
     @Test
     public void compare1() {
