@@ -9,7 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DataContainerTest {
 
     private DataContainer<Integer> containerInteger = new DataContainer<>(new Integer[]{1, null, 3, null});
-    private final DataContainer<String> containerString = new DataContainer<>(new String[]{"i", "hello", "1", "Как домашка"});
+    private DataContainer<String> containerString = new DataContainer<>(
+            new String[]{"i", "hello", "1", "Как домашка"});
 
     @Test
     public void add() {
@@ -43,12 +44,13 @@ public class DataContainerTest {
 
     @Test
     public void sort1() {
-        containerInteger = new DataContainer<>(new Integer[]{3, 1, 3, 777});
+        containerInteger = new DataContainer<>(new Integer[]{null, 3, 1, null, 3, 777});
         containerInteger.sort(new IntegerCompare());
-        assertEquals("[1, 3, 3, 777]", Arrays.toString(containerInteger.getItems()));
+        assertEquals("[1, 3, 3, 777, null, null]", Arrays.toString(containerInteger.getItems()));
 
+        containerString = new DataContainer<>(new String[]{null, "i", "hello", null, "1", "Как домашка"});
         containerString.sort(new StringCompare());
-        assertEquals("[i, 1, hello, Как домашка]", Arrays.toString(containerString.getItems()));
+        assertEquals("[i, 1, hello, Как домашка, null, null]", Arrays.toString(containerString.getItems()));
     }
 
     @Test
@@ -60,22 +62,24 @@ public class DataContainerTest {
 
     @Test
     public void sort2() {
-        containerInteger = new DataContainer<>(new Integer[]{3, 1, 3, 777});
+        containerInteger = new DataContainer<>(new Integer[]{null, 3, null, 1, 3, 777});
         DataContainer.sort(containerInteger);
-        assertEquals("[1, 3, 3, 777]", Arrays.toString(containerInteger.getItems()));
+        assertEquals("[1, 3, 3, 777, null, null]", Arrays.toString(containerInteger.getItems()));
 
+        containerString = new DataContainer<>(new String[]{null, "i", "hello", null, "1", "Как домашка"});
         DataContainer.sort(containerString);
-        assertEquals("[hello, i, 1, Как домашка]", Arrays.toString(containerString.getItems()));
+        assertEquals("[hello, i, 1, Как домашка, null, null]", Arrays.toString(containerString.getItems()));
     }
 
     @Test
     public void sort3() {
-        containerInteger = new DataContainer<>(new Integer[]{3, 1, 3, 777});
+        containerInteger = new DataContainer<>(new Integer[]{null, 3, null, 1, 3, 777});
         DataContainer.sort(containerInteger, new IntegerCompare());
-        assertEquals("[1, 3, 3, 777]", Arrays.toString(containerInteger.getItems()));
+        assertEquals("[1, 3, 3, 777, null, null]", Arrays.toString(containerInteger.getItems()));
 
+        containerString = new DataContainer<>(new String[]{null, "i", "hello", null, "1", "Как домашка"});
         DataContainer.sort(containerString, new StringCompare());
-        assertEquals("[i, 1, hello, Как домашка]", Arrays.toString(containerString.getItems()));
+        assertEquals("[i, 1, hello, Как домашка, null, null]", Arrays.toString(containerString.getItems()));
     }
 
     @Test

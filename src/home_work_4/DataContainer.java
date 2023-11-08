@@ -3,6 +3,7 @@ package home_work_4;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Задание:
@@ -71,7 +72,8 @@ import java.util.Iterator;
  */
 
 /**
- * Класс может сохранять в себе почти любое количество данных обобщённого типа (GENERIC)
+ * Класс может сохранять в себе почти любое количество данных обобщённого типа
+ * (GENERIC)
  *
  * @param <T> Тип хранимых данных
  * @author s.kulapin
@@ -93,7 +95,8 @@ public class DataContainer<T> implements Iterable<T> {
     }
 
     /**
-     * Добавляет данные во внутреннее поле класса и возвращает номер ячейки массива, куда были помещены данные
+     * Добавляет данные во внутреннее поле класса и возвращает номер ячейки массива,
+     * куда были помещены данные
      *
      * @param item Переданные данные
      * @return Номер позиции
@@ -139,11 +142,13 @@ public class DataContainer<T> implements Iterable<T> {
     }
 
     /**
-     * Удаляет элемент из массива по переданному индексу ячейки и удаляет пустую ячейку из массива при успешном поиске
-     * подходящей ячейки. Возвращает true/false в зависимости от успешности произведенного действия
+     * Удаляет элемент из массива по переданному индексу ячейки и удаляет пустую
+     * ячейку из массива при успешном поиске подходящей ячейки. Возвращает
+     * true/false в зависимости от успешности произведенного действия
      *
      * @param index Номер ячейки
-     * @return true - Удаление прошло успешно, false - осуществить удаление не получилось
+     * @return true - Удаление прошло успешно, false - осуществить удаление не
+     * получилось
      */
     public boolean delete(int index) {
 
@@ -167,45 +172,34 @@ public class DataContainer<T> implements Iterable<T> {
     }
 
     /**
-     * Ищет и удаляет элемент из массива по переданному значению данных и удаляет пустую ячейку из массива при успешном
-     * поиске подходящей ячейки. Возвращает true/false в зависимости от успешности произведенного действия
+     * Ищет и удаляет элемент из массива по переданному значению данных и удаляет
+     * пустую ячейку из массива при успешном поиске подходящей ячейки. Возвращает
+     * true/false в зависимости от успешности произведенного действия
      *
      * @param item Данные которые необходимо удалить
-     * @return True - удаление прошло успешно, false - осуществить удаление не получилось
+     * @return True - удаление прошло успешно, false - осуществить удаление не
+     * получилось
      */
     public boolean delete(T item) {
 
-        if (item == null || data.length == 0) {
+        int length = data.length;
+
+        if (item == null || length == 0) {
             return false;
         }
 
-        boolean itemFound = false;
-
-        T[] temp = Arrays.copyOf(data, data.length - 1);
-
-        for (int i = 0, j = 0; i < data.length; i++, j++) {
-            if (data[i] != null && data[i].equals(item) && !itemFound) {
-                itemFound = true;
-                j--;
-                continue;
+        for (int i = 0; i < length; i++) {
+            if (Objects.equals(item, data[i])) {
+                delete(i);
+                return true;
             }
-            // исключаем вызов несуществующей ячейки в массиве temp на последней итерации
-            // при отсутствии совпадений
-            if (i == data.length - 1 && !itemFound) {
-                return false;
-            }
-            temp[j] = data[i];
-        }
-
-        if (itemFound) {
-            data = temp;
-            return true;
         }
         return false;
     }
 
     /**
-     * Сортирует хранимые данные используя реализацию сравнения из переданного объекта компаратора.
+     * Сортирует хранимые данные используя реализацию сравнения из переданного
+     * объекта компаратора.
      *
      * @param comparator Реализация объекта компаратора
      */
@@ -215,20 +209,21 @@ public class DataContainer<T> implements Iterable<T> {
 
             int comparatorResult = comparator.compare(data[i], data[i + 1]);
 
-            if (comparatorResult == 1) {
+            if (comparatorResult > 0) {
 
                 T temp;
 
                 temp = data[i];
                 data[i] = data[i + 1];
                 data[i + 1] = temp;
-                i = 0;
+                i = -1;
             }
         }
     }
 
     /**
-     * Переопределенный метод toString. Возвращает строковое значение хранящихся элементов
+     * Переопределенный метод toString. Возвращает строковое значение хранящихся
+     * элементов
      */
     @Override
     public String toString() {
@@ -254,46 +249,55 @@ public class DataContainer<T> implements Iterable<T> {
     }
 
     /**
-     * Сортирует хранимые данные используя реализацию сравнения вызываемый у хранимых объектов
+     * Сортирует хранимые данные используя реализацию сравнения вызываемый у
+     * хранимых объектов
      *
      * @param <T>       Тип хранимых данных
      * @param container Объект с данными
      */
     public static <T extends Comparable<? super T>> void sort(DataContainer<T> container) {
 
-        int length = container.getItems().length;
-        T[] tempArray = Arrays.copyOf(container.getItems(), length);
+        T[] arr = container.getItems();
+        int comparatorResult;
 
-        for (int i = 0; i < length - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
 
-            if (tempArray[i + 1] != null) {
-                int comparatorResult = tempArray[i].compareTo(tempArray[i + 1]);
-
-                if (comparatorResult == 1) {
-
-                    T temp;
-                    temp = tempArray[i];
-                    tempArray[i] = tempArray[i + 1];
-                    tempArray[i + 1] = temp;
-                    i = 0;
-                }
+            if (arr[i + 1] == null) {
+                continue;
             }
-        }
 
-        for (int i = 0; i < length; i++) {
-            container.delete(0);
-        }
+            if (arr[i] == null) {
+                swapElements(arr, i, i + 1);
+                i = -1;
+                continue;
+            }
 
-        for (int i = 0; i < length; i++) {
-            if (tempArray[i] != null) {
-                container.add(tempArray[i]);
+            comparatorResult = arr[i].compareTo(arr[i + 1]);
+
+            if (comparatorResult == 1) {
+                swapElements(arr, i, i + 1);
+                i = -1;
             }
         }
     }
 
     /**
-     * Соритирует хранимые данные в переданном объекте используя реализацию сравнения из переданного объекта интерфейса
-     * Comparator
+     * Меняет в массиве местами указанные элементы
+     *
+     * @param <T>    Тип хранимых данных
+     * @param array  Массив с данными
+     * @param index1 Индекс ячейки первого элемента
+     * @param index2 Индекс ячейки второго элемента
+     */
+    private static <T extends Comparable<? super T>> void swapElements(T[] array, int index1, int index2) {
+        T temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
+
+    /**
+     * Соритирует хранимые данные в переданном объекте используя реализацию
+     * сравнения из переданного объекта интерфейса Comparator
      *
      * @param <T>        Тип хранимых данных
      * @param container  Объект с данными
@@ -325,8 +329,8 @@ public class DataContainer<T> implements Iterable<T> {
         int current;
 
         /**
-         * Переопределенный метод hasNext интерфейса Iterator. Возвращает true/false в зависимости от нахождения поля
-         * класса current внутри диапазона ячеек массива
+         * Переопределенный метод hasNext интерфейса Iterator. Возвращает true/false в
+         * зависимости от нахождения поля класса current внутри диапазона ячеек массива
          */
         @Override
         public boolean hasNext() {
@@ -334,7 +338,8 @@ public class DataContainer<T> implements Iterable<T> {
         }
 
         /**
-         * Переопределеннй метод next интерфейса Iterator. Возвращает значение ячейки массива
+         * Переопределеннй метод next интерфейса Iterator. Возвращает значение ячейки
+         * массива
          */
         @Override
         public T next() {
