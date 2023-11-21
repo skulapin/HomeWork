@@ -5,9 +5,8 @@ import java.util.Comparator;
 import home_work_5.dto_classes.Person;
 
 /**
- * Comparator для сортировки объектов типа Person в порядке увеличения длины
- * пароля пользователей. При одинаковой длине пароля сортирует коллекцию по
- * псевдонимам пользователей в алфавитном порядке
+ * Comparator для сортировки объектов типа Person в порядке увеличения длины пароля пользователей. При одинаковой длине
+ * пароля сортирует коллекцию по псевдонимам пользователей в алфавитном порядке
  */
 public class PasswordLengthAndNickCompare implements Comparator<Person> {
 

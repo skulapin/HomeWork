@@ -5,8 +5,8 @@ import java.util.Comparator;
 import home_work_5.dto_classes.Animal;
 
 /**
- * Comparator для сортировки объектов типа Animal в порядке увеличения возраста.
- * При одинаковом возрасте сортирует коллекцию по кличкам в алфавитном порядке
+ * Comparator для сортировки объектов типа Animal в порядке увеличения возраста. При одинаковом возрасте сортирует
+ * коллекцию по кличкам в алфавитном порядке
  */
 public class AgeAndNickCompare implements Comparator<Animal> {
 

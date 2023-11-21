@@ -37,12 +37,12 @@ public class Animal implements Comparable<Animal> {
 
     @Override
     public String toString() {
-        return "[age: " + age + ", nick: " + nick + "]";
+        return "[age: " + this.age + ", nick: " + this.nick + "]";
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(age, nick);
+        return Objects.hash(this.age, this.nick);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Animal implements Comparable<Animal> {
         if (getClass() != obj.getClass())
             return false;
         Animal other = (Animal) obj;
-        return age == other.age && Objects.equals(nick, other.nick);
+        return this.age == other.age && Objects.equals(this.nick, other.nick);
     }
 
     @Override
