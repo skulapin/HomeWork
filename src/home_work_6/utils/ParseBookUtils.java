@@ -166,16 +166,23 @@ public class ParseBookUtils {
 
         int size = list.size();
         int index;
+        boolean hasNotFirstDot;
 
         for (int i = 0; i < size; i++) {
 
             String word = list.get(i);
-            if ((index = word.indexOf('.')) != -1 && list.get(i).charAt(index + 1) != '.') {
+            if ((index = word.indexOf('.')) != -1 && index < word.length() - 1 && list.get(i).charAt(index + 1) != '.') {
 
                 list.remove(i);
-                list.add(i, word.substring(0, index));
+                if (hasNotFirstDot = word.charAt(0) != '.') {
+                    list.add(i, word.substring(0, index));
+                    size++;
+                }
                 list.add(word.substring(index + 1));
-                size++;
+
+                if (!hasNotFirstDot) {
+                    i--;
+                }
             }
         }
     }
