@@ -126,7 +126,7 @@ public class WarAndPeaceRunner {
         ISearchEngine engine5 = new SearchEngineCaseNormalizer(engine1);
 
         try {
-            book = FileUtils.readFromFile(bookName);
+            book = FileUtils.readFromFile(bookName, " ");
         } catch (IOException e) {
             System.out.println("Произошла ошибка: " + e);
         }

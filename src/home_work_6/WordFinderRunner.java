@@ -62,7 +62,7 @@ public class WordFinderRunner {
                     }
                     if (booksList.contains(bookName)) {
                         try {
-                            bookText = FileUtils.readFromFile(path + bookName);
+                            bookText = FileUtils.readFromFile(path + bookName, " ");
                             break;
                         } catch (IOException e) {
                             System.out.println(e);
