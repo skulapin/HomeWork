@@ -1,7 +1,10 @@
 WarAndPeaceRunner - Task1, 2, 5
+WordFinderMultiThreadRunner - Task8
 WordFinderRunner - Task7
 	api:
 		ISearchEngine - Task3
+	callable:
+		WordSearchJob - реализация интерфейса Callable
 	comparator:
 		KeyStringComparator - Компаратор для лексикографического сравнения ключей
 		ValueIntegerComparator - Компаратор для сравнения количества ключей
